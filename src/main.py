@@ -13,11 +13,7 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-def F(a,b):
-    return (a+b)
-a=2
-b=3
-print(F(a,b))
-
+print ('HELLO WORLD')
+print('GENNNADIY')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
