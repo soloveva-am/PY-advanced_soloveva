@@ -20,5 +20,21 @@ a=2
 b=3
 print(F(a,b))
 
+def ex1():
+    S=[]
+    with open("input.txt", "r") as input:
+        for line in input:
+            S.append(line.strip())
+            print(line.strip())
+        input.close()
+    return S
+def ex2(S):
+    with  open("output.txt", "w") as output:
+        output.write("\n".join(S))
+        output.close()
 
+        # скопировали содержимое input в output
+
+L=ex1()
+ex2(L)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
