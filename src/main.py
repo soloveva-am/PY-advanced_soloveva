@@ -33,7 +33,6 @@ def ex2(S):
         output.write("\n".join(S))
         output.close()
 
-        # скопировали содержимое input в output
 
 L=ex1()
 ex2(L)
