@@ -13,13 +13,6 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-def F(a,b):
-    print('papam')
-    return (a+b)
-a=2
-b=3
-print(F(a,b))
-
 def ex1():
     S=[]
     with open("input.txt", "r") as input:
@@ -32,8 +25,39 @@ def ex2(S):
     with  open("output.txt", "w") as output:
         output.write("\n".join(S))
         output.close()
+def ex3():
+    import zipfile
+    z = zipfile.ZipFile('archive.zip', 'r')
+    z.extractall()
+    z.printdir()
+    import os
+    S=[]
+
+    with open('result.txt', 'a') as f:
+        for current_dir, dirs, files in os.walk('main'):
+            #if list(filter (lambda x:x.endswith('.py'), files)):
+                #f.write('{}\n'.format(current_dir))
+            print('files', files)
+            print('dirs', dirs)
+            print('current_dir', current_dir)
+            #list of dir with py
+            flag=False
+            for file in files:
+                if file.endswith('.py'):
+                    flag=True
+            if flag:
+                dir_name=current_dir.split('\\')[-1]
+                S.append(dir_name)
+        for dir_name in sorted(S):
+            f.write('{}\n'.format(dir_name))
+        #print(dir_name)
+
+            #sort list
+            #put in file
 
 
+    z.close()
 L=ex1()
 ex2(L)
+ex3()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
