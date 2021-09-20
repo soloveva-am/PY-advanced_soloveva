@@ -35,12 +35,10 @@ def ex3():
 
     with open('result.txt', 'a') as f:
         for current_dir, dirs, files in os.walk('main'):
-            #if list(filter (lambda x:x.endswith('.py'), files)):
-                #f.write('{}\n'.format(current_dir))
             print('files', files)
             print('dirs', dirs)
             print('current_dir', current_dir)
-            #list of dir with py
+
             flag=False
             for file in files:
                 if file.endswith('.py'):
@@ -50,10 +48,7 @@ def ex3():
                 S.append(dir_name)
         for dir_name in sorted(S):
             f.write('{}\n'.format(dir_name))
-        #print(dir_name)
 
-            #sort list
-            #put in file
 
 
     z.close()
