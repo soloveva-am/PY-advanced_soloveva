@@ -65,8 +65,7 @@ class BlackDragon(Dragon):
         self.set_answer(x * y)
         return self.__quest
 
-#FIXME здесь также должны быть описаны классы RedDragon и BlackDragon
-# красный дракон учит вычитанию, а чёрный -- умножению.
+
 
 
 enemy_types = [GreenDragon, RedDragon, BlackDragon]
