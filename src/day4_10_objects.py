@@ -5,6 +5,8 @@ import random
 class shape(object):
     h=None
     w=None
+    _name='shape'
+    _k=1
     def __init__(self, height, width):
         self.h=height
         self.w=width
@@ -39,7 +41,7 @@ class mother:
     k=None
     name='Sarah'
     def __str__(self):
-        return self.name
+        return 'i am '+ self.name
 
 class daughter(mother):
     __r__=None
@@ -71,8 +73,7 @@ class zebra(animal):
     info='zebra which is a tropical mammal herbivore species'
     def run(self):
         print ('igogogo')
-    def stripes(self):
-        return random.Random('black', 'white')
+
 
 Z1=zebra()
 Z1.name = 'Lulu'
