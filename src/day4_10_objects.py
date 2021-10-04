@@ -5,25 +5,28 @@ import random
 class shape(object):
     h=None
     w=None
-    k=None
+    def __init__(self, height, width):
+        self.h=height
+        self.w=width
+    def __str__(self):
+        return f'{self._name}, {self.h} points high, {self.w} points wide '
 
     def area(self):
-        return self.h * self.w * self.k
+        return self.h * self.w * self._k
 
 
 class rectangle(shape):
-    k = 1
+    _k = 1
+    _name = 'rectangle'
 
 class triangle(shape):
-    k = 0.5
+    _k = 0.5
+    _name = 'triangle'
 
-T = triangle()
-T.h=3
-T.w=4
+T = triangle(3, 4)
 
-R = rectangle()
-R.h=3
-R.w=4
+
+R = rectangle(3,4)
 
 print(T)
 
@@ -34,10 +37,14 @@ print('ex2.2')
 
 class mother:
     k=None
+    name='Sarah'
+    def __str__(self):
+        return self.name
 
 class daughter(mother):
     __r__=None
     v=True
+    name= 'Karen'
 
 M=mother()
 D=daughter()
