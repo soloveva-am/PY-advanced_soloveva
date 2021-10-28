@@ -133,7 +133,10 @@ lists = [
     [5, 7, 8, 9, 10]
 ]
 print(maxvalue(lists, 1000))
-
+a=1
+b=2
+c=3
+print ('aa{}  {}, {}'.format(a, b, c))
 
 
 
