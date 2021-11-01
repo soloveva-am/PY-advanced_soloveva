@@ -36,7 +36,7 @@ class bintree():
         self._past=[None, ]
         return(self)
 
-    def __next__(self):
+    def __next__(self): #problem might be here
         self._past.append(self._curr)
         yield self._curr
         if self_curr.left not in self._past:
