@@ -119,3 +119,35 @@ print(next(coroutine))
 for i in range(10):
     print(coroutine.send(i))
 coroutine.close()
+
+print('N5')
+"""class write_to_file(filename):
+    def __init__:
+        self.filename=str(filename)+'.txt'
+    def __call__(self, message):
+        with open(self.filename, 'a') as file:
+            file.write(message) По-честному не могу"""
+
+def write_to_file():
+    filename, message = yield
+    with open(self.filename, 'a') as file:
+        file.write(message)
+
+def connect_user():
+    users=[]
+    x = yield
+    keys= x.split()
+    if keys[0] == 'auth':
+        users.append(keys[1])
+
+    elif keys[0]=='disconnect':
+        users.remove(keys[1])
+    else:
+        username=keys.pop(0)
+        message=' '.join(keys)
+        if username in users:
+            write_to_file.send(username, message)
+
+
+
+
