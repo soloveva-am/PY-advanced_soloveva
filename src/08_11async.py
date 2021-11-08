@@ -18,7 +18,7 @@ async def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
-loop.close()'''
+loop.close()
 
 print ('#2')
 from collections import namedtuple
