@@ -126,7 +126,15 @@ print('N5')
         self.filename=str(filename)+'.txt'
     def __call__(self, message):
         with open(self.filename, 'a') as file:
-            file.write(message) По-честному не могу"""
+            file.write(message) По-честному не могу
+            по идее должен быть класс - генератор сопроцессов записи по числу пользователей"""
+class filewriter():
+    def __init__(self, filename):
+        self.filename=filename
+    def __call__(self):
+        with open(self.filename, 'a') as file:
+            message = yield
+            file.write(message)
 
 def write_to_file():
     filename, message = yield
@@ -134,11 +142,11 @@ def write_to_file():
         file.write(message)
 
 def connect_user():
-    users=[]
+    users={}
     x = yield
     keys= x.split()
     if keys[0] == 'auth':
-        users.append(keys[1])
+        users (keys[1])=filewriter(keys[1])
 
     elif keys[0]=='disconnect':
         users.remove(keys[1])
