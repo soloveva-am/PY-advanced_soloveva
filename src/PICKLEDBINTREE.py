@@ -22,16 +22,19 @@ class Node:
                         break
                     else:
                         parent = parent.left
-        if parent==None:
-            with open("tree_backup.pickle", "wb") as f:
-                try:
-                    l = pickle.load(f)
-                    if isinstance(l, list) and l!=[]:
-                        l.append (self.value)
-                        self.value=l.pop(0)
-                        for i in l:
-                            self.dict.append(Node(i,self))
-                except Exception: pass
+        else:
+            try:
+                with open("tree_backup.pickle", "rb") as f:
+
+                        l = pickle.load(f)
+                        print(l)
+                        if isinstance(l, list) and l!=[]:
+                            l.append (self.value)
+                            self.value=l.pop(0)
+                            for i in l:
+                                self.dict.append(Node(i,self))
+            except FileNotFoundError: pass
+            except Exception: pass
 
     def __str__(self):
         return str(self.value)
@@ -121,3 +124,4 @@ Top.dump()
 Top=Node(28)
 Top.add(35)
 Top.print()
+#Top.clear()
