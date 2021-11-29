@@ -82,7 +82,7 @@ class Node:
                 key.parent.right=None
             else: #side=left
                 key.parent.left=None
-        rest=key.lister()
+        rest=key.lister(False)
         rest1=[]
         for i in rest:
             if i!=instance:
