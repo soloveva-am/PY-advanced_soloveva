@@ -65,12 +65,15 @@ class Node:
             if i.value==n:
                 return i #
         else: return ('None')
-    def lister(self):
+    def lister(self, repeats=True):
         l=[]
+        l1=[]
         for i in self:
             l.append(i.value)
-        #return list(set(l))
-        return l
+            if i.value not in l1:
+                l1.append(i.value)
+        if repeats: return l
+        else: return l1
     def delete(self, instance):
         key=self.find(instance)
         if key !=None:
@@ -88,7 +91,7 @@ class Node:
     def print(self):
         print (self.lister())
     def dump(self):
-        l=self.lister()
+        l=self.lister(False)
         with open("tree_backup.pickle", "wb") as f:
             pickle.dump(l, f, pickle.HIGHEST_PROTOCOL)
     def close(self):
@@ -124,4 +127,4 @@ Top.dump()
 Top=Node(28)
 Top.add(35)
 Top.print()
-#Top.clear()
+Top.clear()
