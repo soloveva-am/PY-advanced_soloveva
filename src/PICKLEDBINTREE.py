@@ -109,9 +109,8 @@ class Node:
 
 L = [14, 15, 9, 27, 6, 5, 89, 8]
 Top = Node(10)
-S = []
 for i in L:
-    S.append(Node(i, Top))
+    Top.add(i)
 
 print(Top)
 print(Top.right)
