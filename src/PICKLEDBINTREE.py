@@ -5,10 +5,10 @@ class Node:
         self.parent = None
         self.right = None
         self.left = None
-        self.dict=[self, ]
+        self.dict=[]
         if parent != None:
             while True:
-                if self.value >= parent.value:  # side= 'parent.right'
+                if (self.value) >= (parent.value):  # side= 'parent.right'
                     if parent.right == None:
                         parent.right = self
                         self.parent = parent
@@ -30,7 +30,7 @@ class Node:
                         l.append (self.value)
                         self.value=l.pop(0)
                         for i in l:
-                            self.add(i)
+                            self.dict.append(Node(i,self))
                 except Exception: pass
 
     def __str__(self):
@@ -62,24 +62,30 @@ class Node:
             if i.value==n:
                 return i #
         else: return ('None')
-    def __list__(self):
+    def lister(self):
         l=[]
         for i in self:
             l.append(i.value)
-        return list(set(l))
+        #return list(set(l))
+        return l
     def delete(self, instance):
         key=self.find(instance)
         if key !=None:
+            print(key.value, 'to be deleted')
             if key.value>=key.parent.value: #side=right
                 key.parent.right=None
             else: #side=left
                 key.parent.left=None
-        rest=list(key).pop(0)
-        for i in rest: self.add(i)
+        rest=key.lister()
+        rest1=[]
+        for i in rest:
+            if i!=instance:
+                rest1.append(i)
+        for i in rest1: self.add(i)
     def print(self):
-        print (self.__list__())
+        print (self.lister())
     def dump(self):
-        l=list(self)
+        l=self.lister()
         with open("tree_backup.pickle", "wb") as f:
             pickle.dump(l, f, pickle.HIGHEST_PROTOCOL)
     def close(self):
@@ -96,7 +102,6 @@ class Node:
 
 
 L = [14, 15, 9, 27, 6, 5, 89, 8]
-
 Top = Node(10)
 S = []
 for i in L:
@@ -107,6 +112,12 @@ print(Top.right)
 print(Top.left)
 print(Top.right.right)
 print()
-for i in Top:
-    print(i)
-print('N3')
+Top.print()
+Top.add(88)
+i=Top.find(27)
+Top.delete(6)
+Top.print()
+Top.dump()
+Top=Node(28)
+Top.add(35)
+Top.print()

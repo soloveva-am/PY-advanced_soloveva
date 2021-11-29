@@ -135,11 +135,10 @@ class filewriter():
         with open(self.filename, 'a') as file:
             message = yield
             file.write(message)
-
-def write_to_file():
-    filename, message = yield
-    with open(self.filename, 'a') as file:
-        file.write(message)
+    def write_to_file():
+        filename, message = yield
+        with open(self.filename, 'a') as file:
+            file.write(message)
 
 def connect_user():
     users={}
