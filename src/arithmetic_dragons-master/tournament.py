@@ -32,10 +32,9 @@ def game_tournament(hero, dragon_list):
                 dragon.attack(hero)
                 print('Ошибка! \n** вам нанесён удар... **')
             elif dragon.check_answer(answer)=='Give Up':
-                hero.Give_Up
+                hero.health=0
             elif dragon.check_answer(answer)=='Run Away':
-                if hero._class != 'Wizard':
-                    dragon.attack(hero)
+                hero.Run_Away(dragon)
                 continue
         if dragon.is_alive():
             break
@@ -48,11 +47,13 @@ def game_tournament(hero, dragon_list):
         print('Ваш накопленный опыт:', hero._experience)
     else:
         print('К сожалению, Вы проиграли...')
+        print('Ваш накопленный опыт:', hero._experience)
 
 def start_game():
 
     try:
         print('Добро пожаловать в арифметико-ролевую игру с драконами!')
+        print ('если вы не знаете ответ на вопрос - введите Run Away, если вы хотите сдаться и закончить игру раньше времени - Give Up')
         print('выберите класс: Fighter, Wizard, Rogue')
         cl=input()
         print('Представьтесь, пожалуйста: ', end='')
@@ -63,7 +64,6 @@ def start_game():
             hero=Rogue(name)
         else: hero = Fighter (name)
 
-        hero = Hero(input())
 
         dragon_number = 3
         dragon_list = generate_dragon_list(dragon_number)
