@@ -7,8 +7,10 @@ class Attacker:
     _attack = None
 
     def attack(self, target):
-        target._health -= self._attack
+        target._health -= self._attack*target.armour()
 
     def is_alive(self):
         return self._health > 0
+    def armour(self):
+        return 1
     

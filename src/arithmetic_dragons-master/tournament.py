@@ -6,10 +6,15 @@ from hero import *
 def annoying_input_int(message =''):
     answer = None
     while answer == None:
+        insert=input(message)
         try:
-            answer = int(input(message))
+            answer = int(insert)
         except ValueError:
-            print('Вы ввели недопустимые символы')
+            if insert == 'Run Away':
+                answer = 'Run Away'
+            elif insert == 'Give Up':
+                answer = 'Give Up'
+            else: print('Вы ввели недопустимые символы')
     return answer
 
 
@@ -20,12 +25,18 @@ def game_tournament(hero, dragon_list):
             print('Вопрос:', dragon.question())
             answer = annoying_input_int('Ответ:')
 
-            if dragon.check_answer(answer):
+            if dragon.check_answer(answer)== 'Verno':
                 hero.attack(dragon)
                 print('Верно! \n** дракон кричит от боли **')
-            else:
+            elif dragon.check_answer(answer)== 'Neverno':
                 dragon.attack(hero)
                 print('Ошибка! \n** вам нанесён удар... **')
+            elif dragon.check_answer(answer)=='Give Up':
+                hero.Give_Up
+            elif dragon.check_answer(answer)=='Run Away':
+                if hero.class != 'Wizard':
+                    dragon.attack(hero)
+                continue
         if dragon.is_alive():
             break
         print('Дракон', dragon._color, 'повержен!\n')
@@ -42,7 +53,16 @@ def start_game():
 
     try:
         print('Добро пожаловать в арифметико-ролевую игру с драконами!')
-        print('Представьтесь, пожалуйста: ', end = '')
+        print('выберите класс: Fighter, Wizard, Rogue')
+        cl=input()
+        print('Представьтесь, пожалуйста: ', end='')
+        name = input()
+        if cl=='Wizard':
+            hero = Wizard(name)
+        elif cl=='Rogue':
+            hero=Rogue(name)
+        else: hero = Fighter (name)
+
         hero = Hero(input())
 
         dragon_number = 3

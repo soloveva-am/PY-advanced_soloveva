@@ -23,7 +23,13 @@ class Dragon(Enemy):
         self.__answer = answer
 
     def check_answer(self, answer):
-        return answer == self.__answer
+        if answer == 'Run Away':
+            return 'Run Away'
+        elif answer == 'Give Up':
+            return 'Give Up'
+        elif answer == self.__answer:
+            return 'Verno'
+        else: return 'Neverno'
 
 
 class GreenDragon(Dragon):
