@@ -34,7 +34,7 @@ def game_tournament(hero, dragon_list):
             elif dragon.check_answer(answer)=='Give Up':
                 hero.Give_Up
             elif dragon.check_answer(answer)=='Run Away':
-                if hero.class != 'Wizard':
+                if hero._class != 'Wizard':
                     dragon.attack(hero)
                 continue
         if dragon.is_alive():
