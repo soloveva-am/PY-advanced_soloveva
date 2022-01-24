@@ -35,3 +35,7 @@ sock.sendall(gzip.compress("next".encode()))     # Отправка
 data = sock.recv(1000) # Ответ
 data = data.decode("utf8")
 print(data)
+sock.sendall(gzip.compress("about".encode()))     # Отправка
+data = sock.recv(1000) # Ответ
+data = data.decode("utf8")
+print(data)
